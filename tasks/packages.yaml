@@ -1,0 +1,66 @@
+---
+- name: Install basic utility packages
+  apt: name={{item}}
+  with_items:
+    - apt-transport-https
+    - bc
+    - build-essential
+    - ca-certificates
+    - curl
+    - fish
+    - g++
+    - git-crypt
+    - gnupg2
+    - jq
+    - make
+    - nodejs
+    - openssh-server
+    - tmux
+    - vim
+
+- name: Install Python-related packages
+  apt: name={{item}}
+  with_items:
+    - ipython
+    - ipython3
+    - python-pip
+    - python3-pip
+    - python-virtualenv
+    - tox
+    - virtualenvwrapper
+
+- name: Install LaTeX-related packages
+  apt: name={{item}}
+  with_items:
+    - texlive
+    - texlive-latex-extra
+    - texlive-publishers
+
+- name: Install cloud-related packages
+  apt: name={{item}}
+  with_items:
+    - awscli
+    - google-cloud-sdk
+    - kubectl
+
+- name: Install container-related packages
+  apt: name={{item}}
+  with_items:
+    - docker.io
+    - docker-compose
+
+- name: Install Univa-related packages
+  apt: name={{item}}
+  with_items:
+    - maven
+
+- name: Install other packages
+  apt: name={{item}}
+  with_items:
+    - asciinema
+    - gimp
+    - gnome-tweak-tool
+    - grip
+    - kazam
+    - kdenlive
+    - lutris

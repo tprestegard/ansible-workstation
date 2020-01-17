@@ -1,0 +1,13 @@
+---
+- hosts: localhost
+  become: true
+  pre_tasks:
+    - include: tasks/apt_signing_keys.yaml
+    - include: tasks/apt_repositories.yaml
+    - name: Update repositories
+      apt: update_cache=yes
+      changed_when: False
+
+- tasks:
+  - include: tasks/packages.yaml
+  - include: tasks/users.yaml

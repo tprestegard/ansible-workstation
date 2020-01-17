@@ -1,0 +1,6 @@
+---
+- name: Set up main 'tanner' user
+  user:
+    name: tanner
+    groups: docker
+    shell: /usr/bin/fish
