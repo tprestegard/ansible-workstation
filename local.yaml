@@ -1,5 +1,5 @@
 ---
-- hosts: localhost
+- hosts: all
   become: true
   pre_tasks:
     - include: tasks/apt_signing_keys.yaml
