@@ -5,3 +5,9 @@
     url: https://packages.cloud.google.com/apt/doc/apt-key.gpg
     keyring: /usr/share/keyrings/cloud.google.gpg
     state: present
+
+- name: Add signing key for Google Chrome
+  apt_key:
+    id: EB4C1BFD4F042F6DDDCCEC917721F63BD38B4796
+    url: https://dl-ssl.google.com/linux/linux_signing_key.pub
+    state: present
