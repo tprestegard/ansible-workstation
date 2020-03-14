@@ -1,66 +1,81 @@
 ---
 - name: Install basic utility packages
-  apt: name={{item}}
-  with_items:
-    - apt-transport-https
-    - bc
-    - build-essential
-    - ca-certificates
-    - curl
-    - fish
-    - g++
-    - git-crypt
-    - gnupg2
-    - jq
-    - make
-    - nodejs
-    - openssh-server
-    - tmux
-    - vim
+  apt:
+    name:
+      - apt-transport-https
+      - bc
+      - build-essential
+      - ca-certificates
+      - curl
+      - fish
+      - g++
+      - git-crypt
+      - google-chrome-stable
+      - gnupg2
+      - jq
+      - make
+      - nodejs
+      - openssh-server
+      - tmux
+      - vim
+    state: present
+    autoclean: true
 
 - name: Install Python-related packages
-  apt: name={{item}}
-  with_items:
-    - ipython
-    - ipython3
-    - python-pip
-    - python3-pip
-    - python-virtualenv
-    - tox
-    - virtualenvwrapper
+  apt:
+    name:
+      - ipython
+      - ipython3
+      - python-pip
+      - python3-pip
+      - python-virtualenv
+      - tox
+      - virtualenvwrapper
+    state: present
+    autoclean: true
 
 - name: Install LaTeX-related packages
-  apt: name={{item}}
-  with_items:
-    - texlive
-    - texlive-latex-extra
-    - texlive-publishers
+  apt:
+    name:
+      - texlive
+      - texlive-latex-extra
+      - texlive-publishers
+    state: present
+    autoclean: true
 
 - name: Install cloud-related packages
-  apt: name={{item}}
-  with_items:
-    - awscli
-    - google-cloud-sdk
-    - kubectl
+  apt:
+    name:
+      - awscli
+      - google-cloud-sdk
+      - kubectl
+    state: present
+    autoclean: true
 
 - name: Install container-related packages
-  apt: name={{item}}
-  with_items:
-    - docker.io
-    - docker-compose
+  apt:
+    name:
+      - docker.io
+      - docker-compose
+    state: present
+    autoclean: true
 
 - name: Install Univa-related packages
-  apt: name={{item}}
-  with_items:
-    - maven
+  apt:
+    name:
+      - maven
+    state: present
+    autoclean: true
 
 - name: Install other packages
-  apt: name={{item}}
-  with_items:
-    - asciinema
-    - gimp
-    - gnome-tweak-tool
-    - grip
-    - kazam
-    - kdenlive
-    - lutris
+  apt:
+    name:
+      - asciinema
+      - gimp
+      - gnome-tweak-tool
+      - grip
+      - kazam
+      - kdenlive
+      - lutris
+    state: present
+    autoclean: true
