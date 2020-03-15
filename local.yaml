@@ -9,4 +9,5 @@
       changed_when: False
   tasks:
     - include: tasks/packages.yaml
+    - include: tasks/packages_pip.yaml
     - include: tasks/users.yaml

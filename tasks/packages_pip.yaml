@@ -1,0 +1,5 @@
+---
+# Install certain packages with pip3
+- pip:
+    name: awscli, azure-cli, flake8, virtualfish
+    state: present
