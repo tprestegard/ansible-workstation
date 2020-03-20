@@ -11,3 +11,17 @@
     - include: tasks/packages.yaml
     - include: tasks/packages_pip.yaml
     - include: tasks/users.yaml
+
+- hosts: all
+  become: false
+  tasks:
+    - include: tasks/global_gitconfig.yaml
+    - include: tasks/personal_git.yaml
+    - include: tasks/ligo_git.yaml
+    - name: Check Univa VPN connection
+      command: ifconfig tun0
+      register: univa_vpn_connected
+      failed_when: False
+      changed_when: False
+    - include: tasks/univa_git.yaml
+      when: univa_vpn_connected.rc == 0

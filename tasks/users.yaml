@@ -2,5 +2,5 @@
 - name: Set up main 'tanner' user
   user:
     name: tanner
-    groups: docker
+    groups: docker, sudo
     shell: /usr/bin/fish

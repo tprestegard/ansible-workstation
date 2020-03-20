@@ -14,8 +14,11 @@
       - gnupg2
       - jq
       - make
+      - net-tools
       - nodejs
       - openssh-server
+      - openvpn
+      - resolvconf
       - tmux
       - vim
     state: present
@@ -26,7 +29,6 @@
     name:
       - ipython3
       - python3-pip
-      - tox
     state: present
     autoclean: true
 
