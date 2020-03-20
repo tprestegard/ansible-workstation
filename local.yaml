@@ -27,3 +27,4 @@
       changed_when: False
     - include: tasks/univa_gitlab.yaml
       when: univa_vpn_connected.rc == 0
+    - include: tasks/vim_plugins.yaml
