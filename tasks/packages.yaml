@@ -6,9 +6,12 @@
       - bc
       - build-essential
       - ca-certificates
+      - cmake
+      - cups
       - curl
       - fish
       - g++
+      - git
       - git-crypt
       - google-chrome-stable
       - gnupg2
@@ -16,11 +19,16 @@
       - make
       - net-tools
       - nodejs
+      - npm
       - openssh-server
       - openvpn
+      - pandoc
       - resolvconf
+      - snapd
+      - thunderbird
       - tmux
       - vim
+      - wget
     state: present
     autoclean: true
 
@@ -74,5 +82,15 @@
       - kazam
       - kdenlive
       - lutris
+      - rhythmbox
     state: present
     autoclean: true
+
+- name: Install zoom from a .deb
+  apt:
+    deb: https://zoom.us/client/latest/zoom_amd64.deb
+
+- name: Install slack via snap
+  snap:
+    name: slack
+    classic: yes
