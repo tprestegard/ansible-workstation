@@ -1,0 +1,69 @@
+---
+# Check out Univa gitlab repos
+- name: Check out Univa gitlab repos
+  git:
+    repo: "issh://git@gitlab.tor.univa.com:2222/{{ item.project }}/{{ item.name }}.git"
+    dest: "{{ ansible_user_dir }}/univa/{{ item.name }}"
+    update: no
+  loop:
+    - { project: navops, name: navopsctl }
+    - { project: navops/navops-launch, name: automation-sdk }
+    - { project: navops/navops-launch, name: controller }
+    - { project: navops/navops-launch, name: kit-navops-launch }
+    - { project: navops/navops-launch, name: kit-uge }
+    - { project: navops/navops-launch, name: launch-webui-v2 }
+    - { project: navops/navops-launch, name: navops-documentation }
+    - { project: navops/navops-launch, name: navops-launch }
+    - { project: navops/navops-launch, name: univa-kit-unisight }
+    - { project: navops/navops-launch, name: unisight-graphql }
+    - { project: tprestegard, name: notes }
+
+# Separate task for this repo since we change its name for clarity
+- name: Check out Univa packer/tortuga repo
+  git:
+    repo: ssh://git@gitlab.tor.univa.com:2222/navops/navops-launch/packer/tortuga.git
+    dest: "{{ ansible_user_dir }}/univa/packer-tortuga"
+    update: no
+
+# Set up gitconfig for Univa gitlab repos
+- name: Set up gitconfig user.email for Univa gitlab repos
+  git_config:
+    name: user.email
+    value: "tprestegard@univa.com"
+    repo: "{{ ansible_user_dir }}/univa/{{ item }}"
+    scope: local
+    state: present
+  loop:
+    - automation-sdk
+    - controller
+    - kit-navops-launch
+    - kit-uge
+    - launch-webui-v2
+    - navops-documentation
+    - navops-launch
+    - navopsctl
+    - notes
+    - packer-tortuga
+    - univa-kit-unisight
+    - unisight-graphql
+
+- name: Set up gitconfig user.signingkey for Univa gitlab repos
+  git_config:
+    name: user.signingkey
+    value: 95289B36EA2F4460
+    repo: "{{ ansible_user_dir }}/univa/{{ item }}"
+    scope: local
+    state: present
+  loop:
+    - automation-sdk
+    - controller
+    - kit-navops-launch
+    - kit-uge
+    - launch-webui-v2
+    - navops-documentation
+    - navops-launch
+    - navopsctl
+    - notes
+    - packer-tortuga
+    - univa-kit-unisight
+    - unisight-graphql
