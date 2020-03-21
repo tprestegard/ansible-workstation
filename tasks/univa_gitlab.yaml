@@ -2,9 +2,10 @@
 # Check out Univa gitlab repos
 - name: Check out Univa gitlab repos
   git:
-    repo: "issh://git@gitlab.tor.univa.com:2222/{{ item.project }}/{{ item.name }}.git"
+    repo: "ssh://git@gitlab.tor.univa.com:2222/{{ item.project }}/{{ item.name }}.git"
     dest: "{{ ansible_user_dir }}/univa/{{ item.name }}"
     update: no
+    key_file: "{{ ansible_user_dir }}/.ssh/id_rsa_univa"
   loop:
     - { project: navops, name: navopsctl }
     - { project: navops/navops-launch, name: automation-sdk }

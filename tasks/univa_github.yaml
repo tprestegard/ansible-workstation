@@ -16,7 +16,7 @@
   git_config:
     name: user.email
     value: "tprestegard@univa.com"
-    repo: "{{ ansible_user_dir }}/ligo/{{ item }}"
+    repo: "{{ ansible_user_dir }}/univa/{{ item }}"
     scope: local
     state: present
   loop:
