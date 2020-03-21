@@ -15,6 +15,8 @@
   loop:
     - linux-setup
     - ansible-workstation
+    - audio
+    - data_science
     - mp3-edit
     - mtg_limited_tier_list
     - notes
@@ -30,6 +32,8 @@
   loop:
     - linux-setup
     - ansible-workstation
+    - audio
+    - data_science
     - mp3-edit
     - mtg_limited_tier_list
     - notes
@@ -44,6 +48,8 @@
   loop:
     - linux-setup
     - ansible-workstation
+    - audio
+    - data_science
     - mp3-edit
     - mtg_limited_tier_list
     - notes
