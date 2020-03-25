@@ -5,6 +5,18 @@
     path: "{{ ansible_user_dir }}/ligo"
     state: directory
 
+# Check if we have git.ligo.org host key in known_hosts
+- name: Check if we have git.ligo.org host key
+  shell: "cat {{ ansible_user_dir }}/.ssh/known_hosts | grep \"git.ligo.org\""
+  register: ligo_gitlab_host_key
+  failed_when: False
+  changed_when: "ligo_gitlab_host_key.rc == 1"
+
+# Add key for git.ligo.org to known_hosts
+- name: Add git.lig.org to known_hosts file
+  shell: "ssh-keyscan -t rsa git.ligo.org >> {{ ansible_user_dir }}/.ssh/known_hosts"
+  when: ligo_gitlab_host_key.rc == 1
+
 # Check out LIGO repos
 - name: Check out LIGO repos
   git:
@@ -16,6 +28,7 @@
     - { project: cgca-computing-team, name: gracedb-aws-deploy }
     - { project: tanner.prestegard, name: gracedb }
     - { project: tanner.prestegard, name: gracedb-client }
+
 
 # Set up gitconfig for LIGO repos
 - name: Set up gitconfig user.email for LIGO repos

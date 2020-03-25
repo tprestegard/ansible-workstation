@@ -1,4 +1,16 @@
 ---
+# Check if we have Univa gitlab host key in known_hosts
+- name: Check if we have Univa gitlab host key
+  shell: "cat {{ ansible_user_dir }}/.ssh/known_hosts | grep \"gitlab.tor.univa.com\""
+  register: univa_gitlab_host_key
+  failed_when: False
+  changed_when: "univa_gitlab_host_key.rc == 1"
+
+# Add key for Univa gitlab to known_hosts
+- name: Add Univa gitlab to known_hosts file
+  shell: "ssh-keyscan -t rsa -p 2222 gitlab.tor.univa.com >> {{ ansible_user_dir }}/.ssh/known_hosts"
+  when: univa_gitlab_host_key.rc == 1
+
 # Check out Univa gitlab repos
 - name: Check out Univa gitlab repos
   git:
