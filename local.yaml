@@ -10,6 +10,7 @@
   tasks:
     - include: tasks/packages.yaml
     - include: tasks/packages_pip.yaml
+    - include: tasks/packages_npm.yaml
     - include: tasks/users.yaml
 
 - hosts: all
