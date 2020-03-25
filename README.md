@@ -1,26 +1,39 @@
 # ansible-workstation
 
+## Manual set up
+* Add GPG and SSH keys
+* Make sure sudo is installed and user account can use it
+* Install packages
+  ```
+  sudo apt-get install vim git ansible
+  ```
 
-## Setup
 
-* Set up `sudo`
-* Set up GPG keys and SSH keys
-* `sudo apt-get install ansible git`
-* `sudo ansible-pull -U https://github.com/tprestegard/ansible-workstation.git`
+## Run `ansible-pull`
+```
+ansible-pull -U https://github.com/tprestegard/ansible-workstation.git -i hosts local.yaml --ask-become-pass
+```
 
-## Other manual setup steps
-* Add LastPass to Chrome
-* Change terminal shortcuts
-* Install slack
-* Install zoom
-* Set up bookmarks
-* Change settings
-  * Ctrl+Alt+T as a custom shortcut for starting a new terminal
-  * Turn off display after 15 minutes
 
-## Other things to think about
-* Set up and give user sudo permissions
-* How to manage linux-setup repo going forward
-* Can we install chrome and other things automatically
-* Graphics card setup?
-* Set up wireless drivers for laptop
+## Other useful commands
+Run ansible from local playbook:
+```
+ansible-playbook --connection=local --inventory 127.0.0.1, --limit 127.0.0.1 local.yaml -i hosts --ask-become-pass
+
+# NOTE: comma in inventory is important
+```
+
+See all ansible facts:
+```
+ansible -m setup 127.0.0.1
+```
+
+
+## Final manual steps
+* Change terminal shortcuts anad color scheme
+* Set up LastPass in Chrome: enable native messaging (Click icon -> Account Options -> About LastPass)
+* Set up Chrome bookmarks
+* Set up Thunderbird
+* Copy music and personal directory from external hard drive
+* Any graphics card or wireless drivers
+* Install games in Lutris
