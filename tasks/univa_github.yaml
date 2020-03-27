@@ -10,6 +10,7 @@
     - tortuga-kit-awsadapter
     - tortuga-kit-azureadapter
     - tortuga-kit-gceadapter
+    - tortuga-kit-slurm
 
 # Set up gitconfig for Univa github repos
 - name: Set up gitconfig user.email for Univa github repos
@@ -24,6 +25,7 @@
     - tortuga-kit-awsadapter
     - tortuga-kit-azureadapter
     - tortuga-kit-gceadapter
+    - tortuga-kit-slurm
 
 - name: Set up gitconfig user.signingkey for Univa github repos
   git_config:
@@ -37,3 +39,4 @@
     - tortuga-kit-awsadapter
     - tortuga-kit-azureadapter
     - tortuga-kit-gceadapter
+    - tortuga-kit-slurm
