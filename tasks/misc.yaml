@@ -1,0 +1,18 @@
+---
+# Check if helpme package needs to be installed
+- name: Check if helpme package is installed
+  command: ls helpme.egg-info
+  register: helpme_egg_exists
+  failed_when: False
+  changed_when: "helpme_egg_exists.rc == 2"
+  args:
+    chdir: "{{ ansible_user_dir }}/personal/helpme"
+
+# Install helpme package
+- name: Install helpme package in editable mode
+  pip:
+    name: helpme
+    chdir: "{{ ansible_user_dir }}/personal"
+    editable: yes
+    state: present
+  when: helpme_egg_exists.stdout == ""
