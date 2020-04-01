@@ -29,6 +29,7 @@
     - ansible-workstation
     - audio
     - data_science
+    - helpme
     - mp3-edit
     - mtg_limited_tier_list
     - notes
@@ -46,6 +47,7 @@
     - ansible-workstation
     - audio
     - data_science
+    - helpme
     - mp3-edit
     - mtg_limited_tier_list
     - notes
@@ -62,6 +64,7 @@
     - ansible-workstation
     - audio
     - data_science
+    - helpme
     - mp3-edit
     - mtg_limited_tier_list
     - notes
