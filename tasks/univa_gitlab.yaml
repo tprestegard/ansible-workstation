@@ -22,6 +22,7 @@
     - { project: navops, name: navopsctl }
     - { project: navops/navops-launch, name: automation-sdk }
     - { project: navops/navops-launch, name: controller }
+    - { project: navops/navops-launch, name: integration-tests }
     - { project: navops/navops-launch, name: kit-navops-launch }
     - { project: navops/navops-launch, name: kit-uge }
     - { project: navops/navops-launch, name: launch-webui-v2 }
@@ -49,6 +50,7 @@
   loop:
     - automation-sdk
     - controller
+    - integration-tests
     - kit-navops-launch
     - kit-uge
     - launch-webui-v2
@@ -70,6 +72,7 @@
   loop:
     - automation-sdk
     - controller
+    - integration-tests
     - kit-navops-launch
     - kit-uge
     - launch-webui-v2
