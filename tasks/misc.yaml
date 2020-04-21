@@ -1,12 +1,10 @@
 ---
 # Check if helpme package needs to be installed
 - name: Check if helpme package is installed
-  command: ls helpme.egg-info
-  register: helpme_egg_exists
+  command: "ls {{ ansible_user_dir }}/.local/bin/helpme"
+  register: helpme_exists
   failed_when: False
-  changed_when: "helpme_egg_exists.rc == 2"
-  args:
-    chdir: "{{ ansible_user_dir }}/personal/helpme"
+  changed_when: "helpme_exists.rc == 2"
 
 # Install helpme package
 - name: Install helpme package in editable mode
@@ -15,4 +13,20 @@
     chdir: "{{ ansible_user_dir }}/personal"
     editable: yes
     state: present
-  when: helpme_egg_exists.stdout == ""
+  when: helpme_exists.stdout == ""
+
+# Check if gitstatus package needs to be installed
+- name: Check if gitstatus package is installed
+  command: "ls {{ ansible_user_dir }}/.local/bin/gitstatus"
+  register: gitstatus_exists
+  failed_when: False
+  changed_when: "gitstatus_exists.rc == 2"
+
+# Install gitstatus package
+- name: Install gitstatus package in editable mode
+  pip:
+    name: gitstatus
+    chdir: "{{ ansible_user_dir }}/personal"
+    editable: yes
+    state: present
+  when: gitstatus_exists.stdout == ""
