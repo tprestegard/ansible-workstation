@@ -30,6 +30,8 @@
     - { project: navops/navops-launch, name: navops-launch }
     - { project: navops/navops-launch, name: univa-kit-unisight }
     - { project: navops/navops-launch, name: unisight-graphql }
+    - { project: tprestegard, name: graphql-automation-development }
+    - { project: tprestegard, name: navops-launch-aws-permissions }
     - { project: tprestegard, name: notes }
 
 # Separate task for this repo since we change its name for clarity
@@ -54,13 +56,15 @@
     - kit-navops-launch
     - kit-uge
     - launch-webui-v2
+    - navopsctl
     - navops-documentation
     - navops-launch
-    - navopsctl
-    - notes
     - packer-tortuga
     - univa-kit-unisight
     - unisight-graphql
+    - graphql-automation-development
+    - navops-launch-aws-permissions
+    - notes
 
 - name: Set up gitconfig user.signingkey for Univa gitlab repos
   git_config:
@@ -76,10 +80,12 @@
     - kit-navops-launch
     - kit-uge
     - launch-webui-v2
+    - navopsctl
     - navops-documentation
     - navops-launch
-    - navopsctl
-    - notes
     - packer-tortuga
     - univa-kit-unisight
     - unisight-graphql
+    - graphql-automation-development
+    - navops-launch-aws-permissions
+    - notes
