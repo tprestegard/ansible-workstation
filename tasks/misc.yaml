@@ -30,3 +30,17 @@
     editable: yes
     state: present
   when: gitstatus_exists.stdout == ""
+
+# Check if githooks have been generated
+- name: Check if githooks have been generated
+  command: "ls {{ ansible_user_dir }}/.githooks/hooks"
+  register: githooks_exist
+  failed_when: False
+  changed_when: "githooks_exist.rc != 0"
+
+# Generate githooks files
+- name: Generate githooks
+  command: ./generate-symlinks.sh
+  when: githooks_exist.rc != 0
+  args:
+    chdir: "{{ ansible_user_dir }}/.githooks"
