@@ -1,17 +1,17 @@
 # ansible-workstation
 
 ## Instructions
-* Add GPG and SSH keys
 * Make sure sudo is installed and user account can use it
 * Install packages
   ```
-  sudo apt-get install vim git ansible
+  sudo apt-get install vim git ansible gnupg2
   ```
+* Add GPG and SSH keys: `gpg2 --import keys.gpg`
 * Clone this repo
   ```
   git clone  git@github.com:tprestegard/ansible-workstation.git
   ```
-*  Run `ansible-playbook`
+* Run `ansible-playbook`
   ```
   ansible-playbook --connection=local --inventory 127.0.0.1, --limit 127.0.0.1 local.yaml -i hosts --ask-become-pass
   # NOTE: comma in inventory is important

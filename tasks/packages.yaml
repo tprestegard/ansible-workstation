@@ -95,3 +95,7 @@
   snap:
     name: slack
     classic: yes
+
+- name: Install spotify via snap
+  snap:
+    name: spotify

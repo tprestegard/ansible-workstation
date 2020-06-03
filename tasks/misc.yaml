@@ -44,3 +44,15 @@
   when: githooks_exist.rc != 0
   args:
     chdir: "{{ ansible_user_dir }}/.githooks"
+
+# Check if virtualfish loader is installed in fish
+- name: Check if virtualfish loader is installed
+  command: "ls {{ ansible_user_dir }}/.config/fish/conf.d/virtualfish-loader.fish"
+  register: virtualfish_loader_installed
+  failed_when: False
+  changed_when: "virtualfish_loader_installed.rc != 0"
+
+# Install virtualfish loader
+- name: Install virtualfish loader
+  command: vf install compat_aliases projects environment auto_activation update_python
+  when: virtualfish_loader_installed.rc != 0
