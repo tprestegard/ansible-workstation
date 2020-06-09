@@ -13,6 +13,7 @@
       - g++
       - git
       - git-crypt
+      - golang
       - google-chrome-stable
       - gnupg2
       - jq
