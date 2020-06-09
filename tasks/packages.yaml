@@ -24,6 +24,7 @@
       - openssh-server
       - openvpn
       - pandoc
+      - pdftk
       - resolvconf
       - snapd
       - thunderbird
