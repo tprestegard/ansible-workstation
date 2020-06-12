@@ -41,6 +41,13 @@
     dest: "{{ ansible_user_dir }}/univa/packer-tortuga"
     update: no
 
+# Check out Unisight repo
+- name: Check out Univa Unisight repo
+  git:
+    repo: git@git.tor.univa.com:unisight
+    dest: "{{ ansible_user_dir }}/univa/unisight"
+    update: no
+
 # Set up gitconfig for Univa gitlab repos
 - name: Set up gitconfig user.email for Univa gitlab repos
   git_config:
@@ -61,6 +68,7 @@
     - navops-launch
     - packer-tortuga
     - univa-kit-unisight
+    - unisight
     - unisight-graphql
     - graphql-automation-development
     - navops-launch-aws-permissions
@@ -85,6 +93,7 @@
     - navops-launch
     - packer-tortuga
     - univa-kit-unisight
+    - unisight
     - unisight-graphql
     - graphql-automation-development
     - navops-launch-aws-permissions
