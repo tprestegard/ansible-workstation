@@ -11,3 +11,4 @@
     - { name: gpg.program, value: gpg2 }
     - { name: commit.gpgsign, value: "true" }
     - { name: core.hookspath, value: "{{ ansible_user_dir }}/.githooks/hooks" }
+    - { name: url."ssh://git@gitlab.tor.univa.com:2222".insteadOf, value: "https://gitlab.tor.univa.com" }
