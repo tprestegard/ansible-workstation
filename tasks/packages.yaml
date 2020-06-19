@@ -101,3 +101,13 @@
 - name: Install spotify via snap
   snap:
     name: spotify
+
+- name: Install PyCharm via snap
+  snap:
+    name: pycharm-community
+    classic: yes
+
+- name: Install GoLand via snap
+  snap:
+    name: goland
+    classic: yes
