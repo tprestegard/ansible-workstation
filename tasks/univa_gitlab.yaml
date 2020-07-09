@@ -31,7 +31,9 @@
     update: no
     key_file: "{{ ansible_user_dir }}/.ssh/id_rsa_univa"
   loop:
+    - { project: navops, name: api-framework }
     - { project: navops, name: navopsctl }
+    - { project: navops, name: unisight-docker }
     - { project: navops/navops-launch, name: automation-sdk }
     - { project: navops/navops-launch, name: controller }
     - { project: navops/navops-launch, name: integration-tests }
@@ -69,6 +71,7 @@
     scope: local
     state: present
   loop:
+    - api-framework
     - automation-sdk
     - controller
     - integration-tests
@@ -81,6 +84,7 @@
     - packer-tortuga
     - univa-kit-unisight
     - unisight
+    - unisight-docker
     - unisight-graphql
     - graphql-automation-development
     - navops-launch-aws-permissions
@@ -94,6 +98,7 @@
     scope: local
     state: present
   loop:
+    - api-framework
     - automation-sdk
     - controller
     - integration-tests
@@ -106,6 +111,7 @@
     - packer-tortuga
     - univa-kit-unisight
     - unisight
+    - unisight-docker
     - unisight-graphql
     - graphql-automation-development
     - navops-launch-aws-permissions
