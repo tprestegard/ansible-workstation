@@ -19,6 +19,7 @@
     update: no
     key_file: "{{ ansible_user_dir }}/.ssh/id_ed25519_gitlab"
   loop:
+    - helpme
     - helpme-go
 
 # Set up git config user.email
@@ -30,6 +31,7 @@
     scope: local
     state: present
   loop:
+    - helpme
     - helpme-go
 
 - name: Set up gitlab personal repos gitconfig user.signingkey
@@ -40,4 +42,5 @@
     scope: local
     state: present
   loop:
+    - helpme
     - helpme-go
