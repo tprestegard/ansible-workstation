@@ -17,7 +17,8 @@
   become: false
   tasks:
     - include: tasks/global_gitconfig.yaml
-    - include: tasks/personal_git.yaml
+    - include: tasks/personal_github.yaml
+    - include: tasks/personal_gitlab.yaml
     - include: tasks/ligo_git.yaml
     - include: tasks/univa_repo_dir.yaml
     - include: tasks/univa_github.yaml
