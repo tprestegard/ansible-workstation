@@ -24,6 +24,7 @@
     - { src: .eyaml, dest: .eyaml }
     - { src: functions, dest: .config/fish/functions }
     - { src: .githooks, dest: .githooks }
+    - { src: helpme_commands, dest: .config/helpme }
     - { src: kaggle.json, dest: .kaggle/kaggle.json }
     - { src: .netrc, dest: .netrc }
     - { src: .pypirc, dest: .pypirc }
